@@ -1,13 +1,13 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { Box } from '@mui/material';
-import PrimaryButton from '../components/PrimaryButton';
+
+import Skills from '../components/Skills';
+import Projects from '../components/Projects';
+import Main from '../components/Main';
 
 export default function Home() {
   return (
-    <Box>
-      test
-      <PrimaryButton>okey</PrimaryButton>;
-    </Box>
+    <main>
+      <section>text</section>
+    </main>
   );
 }
