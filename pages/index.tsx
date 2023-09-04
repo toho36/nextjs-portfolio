@@ -7,7 +7,9 @@ import Main from '../components/Main';
 export default function Home() {
   return (
     <main>
-      <section>text</section>
+      <Main />
+      <Skills />
+      <Projects />
     </main>
   );
 }

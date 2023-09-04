@@ -35,50 +35,64 @@ export default function MainNavigation({
     router.push(href); // Use router.push to navigate
   };
   return (
-    <Box sx={{ padding: '0 100px' }}>
-      <AppBar
-        color="transparent"
-        position="sticky"
-        elevation={0}
+    <Box>
+      <Box
+        position="fixed"
         sx={{
-          borderBottom: '1px solid grey',
+          position: 'fixed',
+
           width: '100%',
-          maxWidth: '1200px',
         }}
       >
-        <Toolbar
+        <AppBar
+          color="transparent"
+          position="relative"
+          elevation={0}
           sx={{
-            justifyContent: 'space-between',
-            alignItems: 'space-between',
+            borderBottom: '1px solid grey',
+            maxWidth: '1200px',
           }}
         >
-          <Box style={{ width: '200px' }}>
-            <Typography variant="h6">To Hoang Viet</Typography>
-          </Box>
-          <Box>
-            <Box display="flex">
-              <a onClick={() => handleContactClick()}>
-                <CustomButton>About</CustomButton>
-              </a>
-
-              {navLinks.map((link, index) => (
-                <a key={index} onClick={() => handleNavLinkClick(link.href)}>
-                  <CustomButton> {link.text}</CustomButton>
-                </a>
-              ))}
+          <Toolbar
+            sx={{
+              justifyContent: 'space-between',
+              alignItems: 'space-between',
+            }}
+          >
+            <Box style={{ width: '200px' }}>
+              <Typography variant="h6">To Hoang Viet</Typography>
             </Box>
-          </Box>
-          <Box>
-            <a onClick={() => router.push('/contact')}>
-              <CustomButton color="blue">Contact</CustomButton>
-            </a>
-          </Box>
-        </Toolbar>
-      </AppBar>
+            <Box>
+              <Box display="flex">
+                <a onClick={() => handleContactClick()}>
+                  <CustomButton>About</CustomButton>
+                </a>
 
-      <AboutModal isOpen={isModalOpen} onClose={handleCloseModal} />
+                {navLinks.map((link, index) => (
+                  <a key={index} onClick={() => handleNavLinkClick(link.href)}>
+                    <CustomButton> {link.text}</CustomButton>
+                  </a>
+                ))}
+              </Box>
+            </Box>
+            <Box>
+              <a onClick={() => router.push('/contact')}>
+                <CustomButton color="blue">Contact</CustomButton>
+              </a>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </Box>
 
-      {children}
+      <Box
+        sx={{
+          justifyContent: 'center',
+          display: 'flex',
+        }}
+      >
+        <AboutModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        {children}
+      </Box>
     </Box>
   );
 }
