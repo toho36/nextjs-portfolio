@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import CustomButton from '../CustomButton';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import AboutModal from '../AboutModal';
-import { Grid } from '@mui/material';
 
 export default function MainNavigation({
   children,
