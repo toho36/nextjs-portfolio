@@ -7,7 +7,6 @@ import CustomButton from '../CustomButton';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import AboutModal from '../AboutModal';
 import { Grid } from '@mui/material';
-// import API from "quickjobs-api-wrapper";
 
 export default function MainNavigation({
   children,
@@ -37,18 +36,25 @@ export default function MainNavigation({
   return (
     <Box>
       <Box
-        position="fixed"
         sx={{
-          position: 'fixed',
-
+          justifyContent: 'center',
+          display: 'flex',
+          position: 'sticky',
+          top: 0,
+          backgroundColor: 'transparent',
+          zIndex: 1000,
           width: '100%',
         }}
       >
         <AppBar
-          color="transparent"
-          position="relative"
           elevation={0}
           sx={{
+            display: 'flex',
+            position: 'sticky',
+            top: 0,
+            backgroundColor: 'transparent',
+
+            zIndex: 1000,
             borderBottom: '1px solid grey',
             maxWidth: '1200px',
           }}
@@ -60,7 +66,9 @@ export default function MainNavigation({
             }}
           >
             <Box style={{ width: '200px' }}>
-              <Typography variant="h6">To Hoang Viet</Typography>
+              <Typography variant="h6" color="black">
+                To Hoang Viet
+              </Typography>
             </Box>
             <Box>
               <Box display="flex">
@@ -83,7 +91,6 @@ export default function MainNavigation({
           </Toolbar>
         </AppBar>
       </Box>
-
       <Box
         sx={{
           justifyContent: 'center',

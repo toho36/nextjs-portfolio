@@ -1,6 +1,11 @@
 import React from 'react';
 import { Button } from '@mui/material';
-
+import { Montserrat } from 'next/font/google';
+const montserrat = Montserrat({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 interface OwnProps {
   children: React.ReactNode;
   corners?: 'sharp' | 'rounded';
@@ -81,7 +86,7 @@ const CustomButton = ({
         backgroundColor:
           styleType === 'outlined' ? 'transparent' : backgroundColor,
         color: styleType === 'outlined' ? borderColor : textColor,
-        fontFamily: 'Montserrat',
+        fontFamily: { montserrat },
         fontSize: customFontSize,
         fontWeight: 600,
         textAlign: 'center',
