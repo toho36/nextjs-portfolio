@@ -3,18 +3,27 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import CustomButton from '../CustomButton';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import AboutModal from '../AboutModal';
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 export default function MainNavigation({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleContactClick = () => {
     setIsModalOpen(true);
@@ -23,15 +32,23 @@ export default function MainNavigation({
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   const navLinks = [
     { text: 'Home', href: '/' },
     { text: 'Skills', href: '/#skills' },
     { text: 'Projects', href: '/#projects' },
     { text: 'Resume', href: '/#resume' },
   ];
+
   const handleNavLinkClick = (href) => {
-    router.push(href); // Use router.push to navigate
+    router.push(href);
+    toggleDrawer(); // Close the drawer after navigation
   };
+
   return (
     <Box>
       <Box
@@ -45,6 +62,7 @@ export default function MainNavigation({
           width: '100%',
         }}
       >
+        {/* Display the menu icon on smaller screens */}
         <AppBar
           elevation={0}
           sx={{
@@ -52,7 +70,6 @@ export default function MainNavigation({
             position: 'sticky',
             top: 0,
             backgroundColor: 'transparent',
-
             zIndex: 1000,
             borderBottom: '1px solid grey',
             maxWidth: '1200px',
@@ -61,7 +78,7 @@ export default function MainNavigation({
           <Toolbar
             sx={{
               justifyContent: 'space-between',
-              alignItems: 'space-between',
+              alignItems: 'center',
             }}
           >
             <Box style={{ width: '200px' }}>
@@ -69,20 +86,23 @@ export default function MainNavigation({
                 To Hoang Viet
               </Typography>
             </Box>
-            <Box>
-              <Box display="flex">
-                <a onClick={() => handleContactClick()}>
-                  <CustomButton>About</CustomButton>
-                </a>
-
-                {navLinks.map((link, index) => (
-                  <a key={index} onClick={() => handleNavLinkClick(link.href)}>
-                    <CustomButton> {link.text}</CustomButton>
-                  </a>
-                ))}
-              </Box>
+            {/* Display the menu icon when the screen is smaller */}
+            <Box display={{ xs: 'block', md: 'none' }}>
+              <IconButton onClick={toggleDrawer}>
+                <MenuIcon />
+              </IconButton>
             </Box>
-            <Box>
+            <Box display={{ xs: 'none', md: 'block' }}>
+              <a onClick={() => handleContactClick()}>
+                <CustomButton>About</CustomButton>
+              </a>
+              {navLinks.map((link, index) => (
+                <a key={index} onClick={() => handleNavLinkClick(link.href)}>
+                  <CustomButton>{link.text}</CustomButton>
+                </a>
+              ))}
+            </Box>
+            <Box display={{ xs: 'none', md: 'block' }}>
               <a onClick={() => router.push('/contact')}>
                 <CustomButton color="blue">Contact</CustomButton>
               </a>
@@ -90,15 +110,121 @@ export default function MainNavigation({
           </Toolbar>
         </AppBar>
       </Box>
-      <Box
-        sx={{
-          justifyContent: 'center',
-          display: 'flex',
-        }}
-      >
+      <Box sx={{ justifyContent: 'center', display: 'flex' }}>
         <AboutModal isOpen={isModalOpen} onClose={handleCloseModal} />
         {children}
       </Box>
+      {/* Drawer for smaller screens */}
+      <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
+        <Box sx={{ pt: 3, px: 6, width: '70vw' }}>
+          <Typography variant="h6" color="black">
+            To Hoang Viet
+          </Typography>
+          <List>
+            <ListItem button onClick={() => handleContactClick()}>
+              <ListItemText primary={'About'} />
+            </ListItem>
+            {navLinks.map((link, index) => (
+              <ListItem
+                button
+                key={index}
+                onClick={() => handleNavLinkClick(link.href)}
+              >
+                <ListItemText primary={link.text} />
+              </ListItem>
+            ))}
+          </List>
+          <Box sx={{ pt: 40 }}>
+            <Typography variant="h6" color="black">
+              Let's Connect
+            </Typography>
+
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                // justifyContent: 'space-between',
+                my: 4,
+                width: '100%',
+                sm: {
+                  width: '80%',
+                },
+              }}
+            >
+              <a
+                href="https://www.linkedin.com/in/hoangvietto/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconButton
+                  sx={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    boxShadow:
+                      '0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08)',
+                    transition: 'transform 300ms ease-in',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    },
+                  }}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+              </a>
+              <a
+                href="https://github.com/toho36"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconButton
+                  sx={{
+                    ml: 5,
+
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    boxShadow:
+                      '0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08)',
+                    transition: 'transform 300ms ease-in',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    },
+                  }}
+                >
+                  <GitHubIcon />
+                </IconButton>
+              </a>
+              <a
+                onClick={() => {
+                  router.push('/contact');
+                  toggleDrawer();
+                }}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconButton
+                  sx={{
+                    ml: 5,
+
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    boxShadow:
+                      '0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08)',
+                    transition: 'transform 300ms ease-in',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    },
+                  }}
+                >
+                  <MailOutlineIcon />
+                </IconButton>
+              </a>
+            </Box>
+          </Box>
+        </Box>
+      </Drawer>
     </Box>
   );
 }
