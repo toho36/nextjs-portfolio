@@ -71,7 +71,10 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
           <CloseIcon sx={{ color: '#9ba1a6' }} />
         </IconButton>
         <Stack spacing={2} sx={{}}>
-          <Typography variant="h4"> About Vítek</Typography>
+          <Typography variant="h4" fontWeight={'bold'}>
+            {' '}
+            About Vítek
+          </Typography>
           <Typography
             variant="body1"
             style={{
