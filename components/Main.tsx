@@ -15,18 +15,24 @@ const Main = () => {
       >
         <Typography
           variant="h1"
+          fontSize={'100px'}
+          fontWeight={'400'}
           sx={{
-            background:
-              'linear-gradient(0deg, #11181c 20%, rgba(17, 24, 28, 0) 45%), linear-gradient(90deg, #0f3058 0%, #006adc 33.333%, #11181c 50%, #11181c 100%)',
-            backgroundRepeat: 'no-repeat',
+            maxWidth: '830px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+            background: 'linear-gradient(to right top, black, lightblue)',
             WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            MozBackgroundClip: 'text',
-            WebkitAnimation: 'intro-gradient 1.8s ease backwards',
-            animation: 'intro-gradient 1.8s ease backwards',
+            color: 'transparent',
+            display: 'inline-block',
           }}
         >
-          React Front end developer
+          Elevated Webflow Sites.
+          <Typography variant="h6">
+            Elevate Your Webflow Projects with a Junior Front-End Developer's
+            Attention to Detail and Passionate Dedication.
+          </Typography>
         </Typography>
       </Box>
     </section>
