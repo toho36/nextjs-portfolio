@@ -16,7 +16,7 @@ const Skill = ({ name, icon }) => (
   <Box
     component="div"
     sx={{
-      p: 6,
+      p: 4,
       boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
       borderRadius: '16px',
       '&:hover': {
@@ -54,7 +54,16 @@ const Skill = ({ name, icon }) => (
 const Skills = () => {
   return (
     <section id="skills">
-      <Box sx={{ width: '100%', minHeight: '100vh', p: 2 }}>
+      <Box
+        sx={{
+          width: '100%',
+          minHeight: '100vh',
+          p: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
         <Box>
           <Typography
             variant="subtitle1"
@@ -65,7 +74,9 @@ const Skills = () => {
           >
             Skills
           </Typography>
-          <Typography variant="h4">What I Can Do</Typography>
+          <Typography variant="h4" sx={{ pb: 4 }}>
+            What I Can Do
+          </Typography>
         </Box>
         <Box
           sx={{
