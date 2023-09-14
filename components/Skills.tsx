@@ -57,8 +57,8 @@ const Skills = () => {
       <Box
         sx={{
           width: '100%',
-          minHeight: '100vh',
-          p: 4,
+          minHeight: '100%',
+          p: 10,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
