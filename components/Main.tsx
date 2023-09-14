@@ -8,9 +8,13 @@ const Main = () => {
       <Box
         sx={{
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           height: '90vh',
+          background: 'linear-gradient(to right top, black, lightblue)',
+          WebkitBackgroundClip: 'text',
+          color: 'transparent',
         }}
       >
         <Typography
@@ -22,17 +26,21 @@ const Main = () => {
             justifyContent: 'center',
             alignItems: 'center',
             textAlign: 'center',
-            background: 'linear-gradient(to right top, black, lightblue)',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            display: 'inline-block',
           }}
         >
           Elevated Webflow Sites.
-          <Typography variant="h6">
-            Elevate Your Webflow Projects with a Junior Front-End Developer's
-            Attention to Detail and Passionate Dedication.
-          </Typography>
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            maxWidth: '830px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}
+        >
+          Elevate Your Webflow Projects with a Junior Front-End Web Developer's
+          Attention to Detail and Passionate Dedication.
         </Typography>
       </Box>
     </section>
