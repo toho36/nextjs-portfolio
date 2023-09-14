@@ -46,7 +46,9 @@ export default function MainNavigation({
 
   const handleNavLinkClick = (href) => {
     router.push(href);
-    toggleDrawer(); // Close the drawer after navigation
+    if (isDrawerOpen) {
+      toggleDrawer(); // Close the drawer after navigation
+    }
   };
 
   return (
