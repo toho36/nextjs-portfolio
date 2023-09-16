@@ -12,10 +12,12 @@ import ListItemText from '@mui/material/ListItemText';
 import CustomButton from '../CustomButton';
 import { useRouter } from 'next/router';
 import AboutModal from '../AboutModal';
+import PersonIcon from '@mui/icons-material/Person';
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import CustomIconButton from '../CustomIconButton';
 export default function MainNavigation({
   children,
 }: {
@@ -38,7 +40,6 @@ export default function MainNavigation({
   };
 
   const navLinks = [
-    { text: 'Home', href: '/' },
     { text: 'Skills', href: '/#skills' },
     { text: 'Projects', href: '/#projects' },
     { text: 'Resume', href: '/#resume' },
@@ -84,9 +85,17 @@ export default function MainNavigation({
             }}
           >
             <Box style={{ width: '200px' }}>
-              <Typography variant="h6" color="black">
-                To Hoang Viet
-              </Typography>
+              <a
+                onClick={() => {
+                  router.push('/');
+                }}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Typography variant="h6" color="black">
+                  To Hoang Viet
+                </Typography>
+              </a>
             </Box>
             {/* Display the menu icon when the screen is smaller */}
             <Box display={{ xs: 'block', md: 'none' }}>
@@ -145,7 +154,7 @@ export default function MainNavigation({
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                // justifyContent: 'space-between',
+                justifyContent: 'space-between',
                 my: 4,
                 width: '100%',
                 sm: {
@@ -153,50 +162,16 @@ export default function MainNavigation({
                 },
               }}
             >
-              <a
+              <CustomIconButton
                 href="https://www.linkedin.com/in/hoangvietto/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <IconButton
-                  sx={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '50%',
-                    boxShadow:
-                      '0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08)',
-                    transition: 'transform 300ms ease-in',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                    },
-                  }}
-                >
-                  <LinkedInIcon />
-                </IconButton>
-              </a>
-              <a
-                href="https://github.com/toho36"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <IconButton
-                  sx={{
-                    ml: 5,
+                icon={<LinkedInIcon />}
+              />
 
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '50%',
-                    boxShadow:
-                      '0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.08)',
-                    transition: 'transform 300ms ease-in',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                    },
-                  }}
-                >
-                  <GitHubIcon />
-                </IconButton>
-              </a>
+              <CustomIconButton
+                href="https://github.com/toho36"
+                icon={<GitHubIcon />}
+              />
+
               <a
                 onClick={() => {
                   router.push('/contact');
@@ -207,8 +182,6 @@ export default function MainNavigation({
               >
                 <IconButton
                   sx={{
-                    ml: 5,
-
                     width: '48px',
                     height: '48px',
                     borderRadius: '50%',
@@ -223,6 +196,10 @@ export default function MainNavigation({
                   <MailOutlineIcon />
                 </IconButton>
               </a>
+              <CustomIconButton
+                href="https://www.linkedin.com/in/hoangvietto/"
+                icon={<PersonIcon />}
+              />
             </Box>
           </Box>
         </Box>
