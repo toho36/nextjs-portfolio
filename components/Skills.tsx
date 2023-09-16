@@ -7,7 +7,7 @@ const skillsData = [
   { name: 'Firebase', icon: '/icons/firebase.png' },
   { name: 'JavaScript', icon: '/icons/javascript.png' },
   { name: 'NextJS', icon: '/icons/nextjs.png' },
-  { name: 'NodeJS', icon: '/icons/node.png' },
+  { name: 'Mui', icon: '/icons/mui.png' },
   { name: 'React', icon: '/icons/react.png' },
   { name: 'TypeScript', icon: '/icons/typescript.png' },
 ];
