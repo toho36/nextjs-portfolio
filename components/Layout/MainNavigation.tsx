@@ -92,9 +92,7 @@ export default function MainNavigation({
                 target="_blank"
                 rel="noreferrer"
               >
-                <Typography variant="h6" color="black">
-                  To Hoang Viet
-                </Typography>
+                <CustomButton>To Hoang Viet</CustomButton>
               </a>
             </Box>
             {/* Display the menu icon when the screen is smaller */}
@@ -115,7 +113,7 @@ export default function MainNavigation({
             </Box>
             <Box display={{ xs: 'none', md: 'block' }}>
               <a onClick={() => router.push('/contact')}>
-                <CustomButton color="blue">Contact</CustomButton>
+                <CustomButton textColor="#4f98f8">Contact</CustomButton>
               </a>
             </Box>
           </Toolbar>
