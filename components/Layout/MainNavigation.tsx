@@ -113,7 +113,7 @@ export default function MainNavigation({
             </Box>
             <Box display={{ xs: 'none', md: 'block' }}>
               <a onClick={() => router.push('/contact')}>
-                <CustomButton textColor="#4f98f8">Contact</CustomButton>
+                <CustomButton textColor="#4f98f8">Contact {'>'} </CustomButton>
               </a>
             </Box>
           </Toolbar>
