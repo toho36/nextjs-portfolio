@@ -92,7 +92,7 @@ export default function MainNavigation({
                 target="_blank"
                 rel="noreferrer"
               >
-                <CustomButton>To Hoang Viet</CustomButton>
+                <CustomButton fontSize={18}>To Hoang Viet</CustomButton>
               </a>
             </Box>
             {/* Display the menu icon when the screen is smaller */}
