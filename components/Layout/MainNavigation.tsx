@@ -27,12 +27,12 @@ export default function MainNavigation({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleContactClick = () => {
+  const handleAboutClick = () => {
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
+    setIsModalOpen(!isModalOpen);
   };
 
   const toggleDrawer = () => {
@@ -102,7 +102,7 @@ export default function MainNavigation({
               </IconButton>
             </Box>
             <Box display={{ xs: 'none', md: 'block' }}>
-              <a onClick={() => handleContactClick()}>
+              <a onClick={() => handleAboutClick()}>
                 <CustomButton>About</CustomButton>
               </a>
               {navLinks.map((link, index) => (
@@ -130,7 +130,7 @@ export default function MainNavigation({
             To Hoang Viet
           </Typography>
           <List>
-            <ListItem button onClick={() => handleContactClick()}>
+            <ListItem button onClick={() => handleAboutClick()}>
               <ListItemText primary={'About'} />
             </ListItem>
             {navLinks.map((link, index) => (
