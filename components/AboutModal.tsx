@@ -116,6 +116,14 @@ const smallerScreenStyles = {
       marginRight: '-20%',
     },
   },
+  '@media (max-width: 375px)': {
+    '.about-img': {
+      clipPath: 'polygon(40% 0% , 70% 0, 70% 100%, 40% 100%)',
+      float: 'right', // Align it to the right
+      opacity: 0.5, // Set opacity to 70%
+      marginRight: '-30%',
+    },
+  },
 };
 
 const modalWrapStyles = {
