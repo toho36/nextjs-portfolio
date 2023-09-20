@@ -22,10 +22,18 @@ const ContactContainer = styled(Container)`
 
 const Contact = () => {
   return (
-    <ContactContainer id="contact" sx={{ minHeight: '100vh' }}>
-      <Typography variant="h4" sx={{ py: 4 }}>
+    <ContactContainer
+      id="contact"
+      sx={{
+        minHeight: '90vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      {/* <Typography variant="h4" sx={{ py: 4 }}>
         Get In Touch
-      </Typography>
+      </Typography> */}
       <Grid container spacing={8}>
         {/* left */}
         <Grid item xs={12} lg={6}>

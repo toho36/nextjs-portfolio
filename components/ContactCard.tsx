@@ -49,6 +49,9 @@ const ContactCard = () => {
           >
             <Box
               sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
                 borderRadius: 'xl',
                 border: 'black',
                 '&:hover': {
