@@ -126,7 +126,7 @@ const ContactCard = () => {
               </IconButton>
             </a>
             <CustomIconButton
-              href="https://www.linkedin.com/in/hoangvietto/"
+              href="https://docs.google.com/document/d/1eh1-qgi43el_Fr6CRzS9tlFRyBKx-3rC/edit?usp=sharing&ouid=117803866456659323822&rtpof=true&sd=true"
               icon={<PersonIcon />}
             />
           </Box>

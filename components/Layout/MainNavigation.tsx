@@ -42,11 +42,19 @@ export default function MainNavigation({
   const navLinks = [
     { text: 'Skills', href: '/#skills' },
     { text: 'Projects', href: '/#projects' },
-    { text: 'Resume', href: '/#resume' },
+    {
+      text: 'Resume',
+      href: 'https://docs.google.com/document/d/1eh1-qgi43el_Fr6CRzS9tlFRyBKx-3rC/edit?usp=sharing&ouid=117803866456659323822&rtpof=true&sd=true',
+    },
   ];
 
   const handleNavLinkClick = (href) => {
-    router.push(href);
+    if (href === navLinks[2].href) {
+      // If the clicked link is the "Resume" link, open it in a new tab
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
     if (isDrawerOpen) {
       toggleDrawer(); // Close the drawer after navigation
     }
@@ -195,7 +203,7 @@ export default function MainNavigation({
                 </IconButton>
               </a>
               <CustomIconButton
-                href="https://www.linkedin.com/in/hoangvietto/"
+                href="https://docs.google.com/document/d/1eh1-qgi43el_Fr6CRzS9tlFRyBKx-3rC/edit?usp=sharing&ouid=117803866456659323822&rtpof=true&sd=true"
                 icon={<PersonIcon />}
               />
             </Box>
