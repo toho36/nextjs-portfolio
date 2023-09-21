@@ -58,7 +58,7 @@ const Skills = () => {
         sx={{
           width: '100%',
           minHeight: '100%',
-          p: 10,
+          pl: 3,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',

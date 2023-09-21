@@ -15,7 +15,7 @@ const Main = () => {
           background: 'linear-gradient(to right top, black, lightblue)',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          padding: '0 20px 0  50px', // Add some padding for smaller screens
+          padding: '0 20px 0  20px', // Add some padding for smaller screens
         }}
       >
         <Typography
