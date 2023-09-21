@@ -38,6 +38,12 @@ export default function MainNavigation({
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+  const handleToHoangVietClick = () => {
+    router.push('/');
+    if (isDrawerOpen) {
+      toggleDrawer(); // Close the drawer after navigation
+    }
+  };
 
   const navLinks = [
     { text: 'Skills', href: '/#skills' },
@@ -134,10 +140,16 @@ export default function MainNavigation({
       {/* Drawer for smaller screens */}
       <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
         <Box sx={{ pt: 3, px: 6, width: '70vw' }}>
-          <Typography variant="h6" color="black">
+          <Typography
+            variant="h6"
+            color="black"
+            sx={{ borderBottom: '1px solid black', cursor: 'pointer' }}
+            onClick={handleToHoangVietClick}
+          >
             To Hoang Viet
           </Typography>
-          <List>
+
+          <List sx={{ marginTop: 2 }}>
             <ListItem button onClick={() => handleAboutClick()}>
               <ListItemText primary={'About'} />
             </ListItem>
