@@ -23,6 +23,7 @@ function ContactFormCard() {
       action="https://getform.io/f/d6b81625-7b16-4d25-b5b9-2cde4a63eaad"
       method="POST"
       encType="multipart/form-data"
+      id="contactForm"
     >
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>

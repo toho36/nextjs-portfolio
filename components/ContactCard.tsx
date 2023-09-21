@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -12,6 +12,13 @@ import { useRouter } from 'next/router';
 
 const ContactCard = () => {
   const router = useRouter();
+  const [currentImage, setCurrentImage] = useState('note.jpg');
+  const toggleImage = () => {
+    setCurrentImage((prevImage) =>
+      prevImage === 'note.jpg' ? 'goulding.gif' : 'note.jpg'
+    );
+    router.push('/contact#contactForm');
+  };
 
   return (
     <Box
@@ -61,13 +68,15 @@ const ContactCard = () => {
               }}
             >
               <img
-                src="/images/note.jpg"
+                src={`/images/${currentImage}`} // Use the currentImage state
                 alt="note"
                 style={{
                   maxWidth: '50%',
                   height: 'auto',
-                  display: 'block', // This ensures proper alignment
+                  display: 'block',
+                  cursor: 'pointer', // Add this to make it clickable
                 }}
+                onClick={toggleImage} // Call toggleImage when clicked
               />
             </Box>
 
