@@ -74,7 +74,7 @@ export default function MainNavigation({
           display: 'flex',
           position: 'sticky',
           top: 0,
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
           zIndex: 1000,
           width: '100%',
         }}
