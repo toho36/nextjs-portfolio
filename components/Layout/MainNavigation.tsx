@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import CustomButton from '../CustomButton';
 import { useRouter } from 'next/router';
+import {
+  AppBar,
+  Box,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import { GitHub, LinkedIn, MailOutline, PersonPin } from '@mui/icons-material';
 import AboutModal from '../AboutModal';
-import PersonIcon from '@mui/icons-material/Person';
-
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import CustomButton from '../CustomButton';
 import CustomIconButton from '../CustomIconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 export default function MainNavigation({
   children,
 }: {
@@ -27,22 +26,13 @@ export default function MainNavigation({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleAboutClick = () => {
-    setIsModalOpen(true);
-  };
+  const handleAboutClick = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(!isModalOpen);
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
-  const handleCloseModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
   const handleToHoangVietClick = () => {
     router.push('/');
-    if (isDrawerOpen) {
-      toggleDrawer(); // Close the drawer after navigation
-    }
+    if (isDrawerOpen) toggleDrawer(); // Close the drawer after navigation
   };
 
   const navLinks = [
@@ -54,16 +44,11 @@ export default function MainNavigation({
     },
   ];
 
-  const handleNavLinkClick = (href) => {
-    if (href === navLinks[2].href) {
-      // If the clicked link is the "Resume" link, open it in a new tab
-      window.open(href, '_blank');
-    } else {
-      router.push(href);
-    }
-    if (isDrawerOpen) {
-      toggleDrawer(); // Close the drawer after navigation
-    }
+  const handleNavLinkClick = (href: string) => {
+    if (href === navLinks[2].href) window.open(href, '_blank');
+    // If the clicked link is the "Resume" link, open it in a new tab
+    else router.push(href);
+    if (isDrawerOpen) toggleDrawer(); // Close the drawer after navigation
   };
 
   return (
@@ -100,9 +85,7 @@ export default function MainNavigation({
           >
             <Box style={{ width: '200px' }}>
               <a
-                onClick={() => {
-                  router.push('/');
-                }}
+                onClick={() => router.push('/')}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -116,7 +99,7 @@ export default function MainNavigation({
               </IconButton>
             </Box>
             <Box display={{ xs: 'none', md: 'block' }}>
-              <a onClick={() => handleAboutClick()}>
+              <a onClick={handleAboutClick}>
                 <CustomButton>About</CustomButton>
               </a>
               {navLinks.map((link, index) => (
@@ -150,7 +133,7 @@ export default function MainNavigation({
           </Typography>
 
           <List sx={{ marginTop: 2 }}>
-            <ListItem button onClick={() => handleAboutClick()}>
+            <ListItem button onClick={handleAboutClick}>
               <ListItemText primary={'About'} />
             </ListItem>
             {navLinks.map((link, index) => (
@@ -182,12 +165,12 @@ export default function MainNavigation({
             >
               <CustomIconButton
                 href="https://www.linkedin.com/in/hoangvietto/"
-                icon={<LinkedInIcon />}
+                icon={<LinkedIn />}
               />
 
               <CustomIconButton
                 href="https://github.com/toho36"
-                icon={<GitHubIcon />}
+                icon={<GitHub />}
               />
 
               <a
@@ -211,12 +194,12 @@ export default function MainNavigation({
                     },
                   }}
                 >
-                  <MailOutlineIcon />
+                  <MailOutline />
                 </IconButton>
               </a>
               <CustomIconButton
                 href="https://docs.google.com/document/d/1eh1-qgi43el_Fr6CRzS9tlFRyBKx-3rC/edit?usp=sharing&ouid=117803866456659323822&rtpof=true&sd=true"
-                icon={<PersonIcon />}
+                icon={<PersonPin />}
               />
             </Box>
           </Box>
