@@ -1,15 +1,114 @@
 import React from 'react';
 import { Box, IconButton, Modal, Typography } from '@mui/material';
-
 import CloseIcon from '@mui/icons-material/Close';
+
 interface AboutModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
 const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
   const handleModalWrapClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
+
+  const bgModalContentStyles = {
+    boxSizing: 'border-box',
+    WebkitFontSmoothing: 'antialiased',
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(80, 80, 80, 0.7)',
+    backdropFilter: 'blur(24px)',
+    opacity: 1,
+  };
+
+  const smallerScreenStyles = {
+    '@media (max-width: 768px)': {
+      '.about-img': {
+        clipPath: 'polygon(0 0, 80% 0, 80% 100%, 0 100%)',
+        float: 'right',
+        opacity: 0.7,
+        marginRight: '-20%',
+      },
+    },
+    '@media (max-width: 375px)': {
+      '.about-img': {
+        clipPath: 'polygon(40% 0% , 70% 0, 70% 100%, 40% 100%)',
+        float: 'right',
+        opacity: 0.5,
+        marginRight: '-30%',
+      },
+    },
+  };
+
+  const modalWrapStyles = {
+    WebkitTextSizeAdjust: '100%',
+    lineHeight: 1.2,
+    boxSizing: 'border-box',
+    WebkitFontSmoothing: 'antialiased',
+    position: 'fixed',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 2999,
+    justifyContent: 'center',
+    overflow: 'auto',
+    padding: '64px 0 0',
+    alignItems: 'flex-start',
+    display: 'flex',
+  };
+
+  const modalStyles = {
+    WebkitTextSizeAdjust: '100%',
+    lineHeight: 1.2,
+    boxSizing: 'border-box',
+    WebkitFontSmoothing: 'antialiased',
+    position: 'relative',
+    zIndex: 2,
+    overflow: 'hidden',
+    width: '100%',
+    maxWidth: '620px',
+    borderRadius: '16px',
+    backgroundColor: '#fff',
+  };
+
+  const aboutModalInnerStyles = {
+    WebkitTextSizeAdjust: '100%',
+    lineHeight: 1.2,
+    boxSizing: 'border-box',
+    WebkitFontSmoothing: 'antialiased',
+    position: 'relative',
+    padding: '32px 20px 64px',
+  };
+
+  const imageWrapStyles = {
+    WebkitTextSizeAdjust: '100%',
+    lineHeight: 1.2,
+    boxSizing: 'border-box',
+    WebkitFontSmoothing: 'antialiased',
+    position: 'absolute',
+    left: 'auto',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    height: '100%',
+    opacity: '70%',
+  };
+
+  const aboutModalContentStyles = {
+    WebkitTextSizeAdjust: '100%',
+    boxSizing: 'border-box',
+    WebkitFontSmoothing: 'antialiased',
+    position: 'relative',
+    zIndex: 1,
+    width: '100%',
+    maxWidth: '280px',
+  };
+
   return (
     <Modal
       open={isOpen}
@@ -94,99 +193,3 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
 };
 
 export default AboutModal;
-
-const bgModalContentStyles = {
-  boxSizing: 'border-box',
-  WebkitFontSmoothing: 'antialiased',
-  position: 'fixed',
-  left: 0,
-  top: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(80, 80, 80, 0.7)',
-  backdropFilter: 'blur(24px)',
-  opacity: 1,
-};
-const smallerScreenStyles = {
-  '@media (max-width: 768px)': {
-    '.about-img': {
-      clipPath: 'polygon(0 0, 80% 0, 80% 100%, 0 100%)',
-      float: 'right', // Align it to the right
-      opacity: 0.7, // Set opacity to 70%
-      marginRight: '-20%',
-    },
-  },
-  '@media (max-width: 375px)': {
-    '.about-img': {
-      clipPath: 'polygon(40% 0% , 70% 0, 70% 100%, 40% 100%)',
-      float: 'right', // Align it to the right
-      opacity: 0.5, // Set opacity to 70%
-      marginRight: '-30%',
-    },
-  },
-};
-
-const modalWrapStyles = {
-  WebkitTextSizeAdjust: '100%',
-  lineHeight: 1.2,
-  boxSizing: 'border-box',
-  WebkitFontSmoothing: 'antialiased',
-  position: 'fixed',
-  left: 0,
-  top: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 2999,
-  justifyContent: 'center',
-  overflow: 'auto',
-  padding: '64px 0 0',
-  alignItems: 'flex-start',
-  display: 'flex',
-};
-
-const modalStyles = {
-  WebkitTextSizeAdjust: '100%',
-  lineHeight: 1.2,
-  boxSizing: 'border-box',
-  WebkitFontSmoothing: 'antialiased',
-  position: 'relative',
-  zIndex: 2,
-  overflow: 'hidden',
-  width: '100%',
-  maxWidth: '620px',
-  borderRadius: '16px',
-  backgroundColor: '#fff',
-};
-
-const aboutModalInnerStyles = {
-  WebkitTextSizeAdjust: '100%',
-  lineHeight: 1.2,
-  boxSizing: 'border-box',
-  WebkitFontSmoothing: 'antialiased',
-  position: 'relative',
-  padding: '32px 20px 64px',
-};
-
-const imageWrapStyles = {
-  WebkitTextSizeAdjust: '100%',
-  lineHeight: 1.2,
-  boxSizing: 'border-box',
-  WebkitFontSmoothing: 'antialiased',
-  position: 'absolute',
-  left: 'auto',
-  top: 0,
-  right: 0,
-  bottom: 0,
-  height: '100%',
-  opacity: '70%',
-};
-
-const aboutModalContentStyles = {
-  WebkitTextSizeAdjust: '100%',
-  boxSizing: 'border-box',
-  WebkitFontSmoothing: 'antialiased',
-  position: 'relative',
-  zIndex: 1,
-  width: '100%',
-  maxWidth: '280px',
-};
