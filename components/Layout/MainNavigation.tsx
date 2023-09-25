@@ -122,7 +122,7 @@ export default function MainNavigation({
       </Box>
       {/* Drawer for smaller screens */}
       <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer}>
-        <Box sx={{ pt: 3, px: 6, width: '70vw' }}>
+        <Box sx={{ pt: 3, px: 3, width: '70vw' }}>
           <Typography
             variant="h6"
             color="black"
@@ -146,7 +146,7 @@ export default function MainNavigation({
               </ListItem>
             ))}
           </List>
-          <Box sx={{ pt: 40 }}>
+          <Box sx={{ pt: 30 }}>
             <Typography variant="h6" color="black">
               Let's Connect
             </Typography>
