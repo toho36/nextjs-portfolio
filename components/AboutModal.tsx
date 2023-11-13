@@ -129,11 +129,11 @@ const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
             <Box sx={aboutModalInnerStyles} onClick={handleModalWrapClick}>
               <Box sx={imageWrapStyles}>
                 <img
-                  src="/images/voley.png"
+                  src="/images/profile.png"
                   loading="lazy"
                   width="344"
                   height="747"
-                  alt="voley picture"
+                  alt="profile picture"
                   sizes="100vw"
                   className="about-img"
                 />
